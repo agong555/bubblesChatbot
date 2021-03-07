@@ -1,0 +1,25 @@
+from textblob import TextBlob
+
+
+userInput = input("Type your sentence: ")
+while (input != "exit"):
+  edu = TextBlob(userInput)
+  sentiment = edu.sentiment.polarity
+  # negative
+  if sentiment < 0:
+    print("Sorry to hear that, I'm sure things will look up for you soon! If you're having a rough day, please talk to a counselor here.")
+
+  # neutral
+  elif sentiment == 0:
+    print("Hi! Do you want to play a minigame?")
+    userInput = input("Type your sentence: ")
+    if (userInput == "no"):
+      print("Ok, that's fine!")
+    elif (userInput == "yes"):
+      print("Cool, let's take you to the minigames page")
+
+  # positive
+  elif sentiment > 0:
+    print("Great! Have confidence in yourself, you're amazing and deserve the best :)")
+  
+  userInput = input("Type your sentence: ")
